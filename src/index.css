@@ -16,3 +16,17 @@
 		@apply inline-block;
 	}
 }
+
+@layer utilities {
+	.section {
+		@apply w-full flex justify-center items-center;
+	}
+
+	.section--content {
+		@apply w-full max-w-[1440px] px-4 sm:px-8 lg:px-16;
+	}
+
+	.image {
+		@apply flex justify-center items-center;
+	}
+}
