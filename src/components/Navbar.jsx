@@ -41,7 +41,7 @@ const Navbar = () => {
 					</div>
 					{/* Dropdown Menu */}
 					{catMenu ? (
-						<div className="absolute top-12 right-0 w-[200px] rounded-md border border-neutral-200 p-4 flex flex-col gap-2">
+						<div className="absolute top-12 right-0 w-[200px] rounded-md border border-neutral-200 bg-white p-4 flex flex-col gap-2 z-10">
 							{categories.map((cat) => (
 								<div
 									key={cat.label}
