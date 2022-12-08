@@ -2,6 +2,7 @@ import React from "react";
 import Announcement from "../components/Announcement";
 import BestDeals from "../components/BestDeals";
 import Categories from "../components/Categories";
+import Features from "../components/Features";
 import Navbar from "../components/Navbar";
 import Slider from "../components/Slider";
 
@@ -13,6 +14,7 @@ const Homepage = () => {
 			<Slider />
 			<Categories />
 			<BestDeals />
+			<Features />
 		</div>
 	);
 };
