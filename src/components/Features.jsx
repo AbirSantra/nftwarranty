@@ -32,7 +32,7 @@ const Features = () => {
 					<div className="feature--info flex flex-col">
 						<p className="title font-bold text-xl">Easy Returns</p>
 						<p className="subtitle text-sm font-medium text-neutral-400">
-							Easy 7 days return & replacement policy
+							Easy 7 days easy return policy
 						</p>
 					</div>
 				</div>
