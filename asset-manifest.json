@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/nftwarranty/static/css/main.ad1c90c0.css",
+    "main.js": "/nftwarranty/static/js/main.91e2d536.js",
+    "static/media/sliderimg1.png": "/nftwarranty/static/media/sliderimg1.3a5b3bf3eae5f608544c.png",
+    "static/media/sliderimg4.png": "/nftwarranty/static/media/sliderimg4.2a6e35a7a054a4c3bfb8.png",
+    "static/media/sliderimg2.png": "/nftwarranty/static/media/sliderimg2.6e622e6a4a0cdef85469.png",
+    "static/media/sliderimg3.png": "/nftwarranty/static/media/sliderimg3.2ba3952776851b3e35d3.png",
+    "static/media/airdopes.png": "/nftwarranty/static/media/airdopes.2017351fdd9b9a4fe5ab.png",
+    "index.html": "/nftwarranty/index.html",
+    "main.ad1c90c0.css.map": "/nftwarranty/static/css/main.ad1c90c0.css.map",
+    "main.91e2d536.js.map": "/nftwarranty/static/js/main.91e2d536.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ad1c90c0.css",
+    "static/js/main.91e2d536.js"
+  ]
+}
