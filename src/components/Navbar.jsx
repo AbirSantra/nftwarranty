@@ -3,6 +3,7 @@ import { useState } from "react";
 import { BiChevronDown, BiSearch } from "react-icons/bi";
 import { HiOutlineUser } from "react-icons/hi";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 	const categories = [
@@ -69,10 +70,13 @@ const Navbar = () => {
 					{/* Links */}
 					<div className="flex justify-center items-center gap-8">
 						{/* Account */}
-						<div className="flex justify-center items-center gap-2 hover:text-primary ease-in-out duration-300 cursor-pointer">
+						<Link
+							to="/auth"
+							className="flex justify-center items-center gap-2 hover:text-primary ease-in-out duration-300 cursor-pointer"
+						>
 							<HiOutlineUser size={19} className="text-primary" />
 							<p className="font-semibold">Account</p>
-						</div>
+						</Link>
 						{/* Cart */}
 						<div className="flex justify-center items-center gap-2 hover:text-primary ease-in-out duration-300 cursor-pointer">
 							<MdOutlineShoppingCart size={20} className="text-primary" />
