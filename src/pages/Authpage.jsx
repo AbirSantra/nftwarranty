@@ -12,6 +12,9 @@ const Authpage = () => {
 						Shopus
 					</Link>
 					{/* Form */}
+					<div className="authform">
+						<h1>Sign in to your account</h1>
+					</div>
 					{/* Copyright */}
 					<p className="text-grey-three">
 						Shopus &copy; {new Date().getFullYear()}. All rights reserved.
