@@ -19,7 +19,7 @@ const Authpage = () => {
 				</div>
 				{/* Right Section */}
 				<div className="auth--image--container section flex-1 min-h-screen bg-slate-100 p-16">
-					<span className="circle h-40 w-40 bg-primary shadow-lg rounded-full"></span>
+					<span className="circle h-40 w-40 bg-primary shadow-lg rounded-full animate-bounce"></span>
 				</div>
 			</div>
 		</div>
