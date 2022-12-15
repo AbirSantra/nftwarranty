@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import InputField from "../components/InputField";
 
 const Authpage = () => {
 	return (
@@ -12,8 +13,27 @@ const Authpage = () => {
 						Shopus
 					</Link>
 					{/* Form */}
-					<div className="authform">
-						<h1>Sign in to your account</h1>
+					<div className="authform w-full max-w-[400px] self-center">
+						{/* Auth Header */}
+						<h1 className="font-bold text-3xl">Welcome back</h1>
+						{/* Auth Subheader */}
+						<h1 className="text-slate-400 mt-2">
+							Sign in to your account below
+						</h1>
+						{/* Form body */}
+						<form className="flex flex-col items-center gap-4 w-full mt-8">
+							<InputField label="Email" type="email" />
+							<InputField label="Password" type="password" />
+							<button className="mt-2 w-full bg-primary px-4 py-2 rounded-lg font-semibold text-white-one hover:bg-primary-dark ease-in-out duration-200">
+								Sign in
+							</button>
+							<p className="mt-4 text-sm text-slate-400">
+								New here?{" "}
+								<button className="text-primary font-medium">
+									Create an account
+								</button>
+							</p>
+						</form>
 					</div>
 					{/* Copyright */}
 					<p className="text-grey-three">
