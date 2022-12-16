@@ -25,9 +25,9 @@ const Authpage = () => {
 						<form className="flex flex-col items-center gap-4 w-full mt-8">
 							<InputField label="Email" type="email" />
 							<InputField label="Password" type="password" />
-							<p className="text-sm font-semibold text-primary self-end">
+							<button className="text-sm font-semibold text-primary self-end">
 								Forgot Password
-							</p>
+							</button>
 							<button className=" w-full bg-primary px-4 py-2 rounded-lg text-base font-semibold text-white-one hover:bg-primary-dark ease-in-out duration-200">
 								<p>Sign In</p>
 							</button>
