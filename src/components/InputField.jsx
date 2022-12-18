@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
-const InputField = ({ type, label }) => {
+const InputField = ({ type, label, ...props }) => {
 	//? to store the password state
 	const [showpass, setShowpass] = useState(false);
 
@@ -19,6 +19,7 @@ const InputField = ({ type, label }) => {
 				<div className="w-full px-4 py-2 border border-slate-300 rounded-md text-slate-500 focus-within:border-primary flex justify-center items-center gap-2">
 					<input
 						type={showpass ? "text" : "password"}
+						{...props}
 						className="w-full outline-none border-none"
 					/>
 					<button className="" onClick={togglePass}>
@@ -31,7 +32,11 @@ const InputField = ({ type, label }) => {
 				</div>
 			) : (
 				<div className="w-full px-4 py-2 border border-slate-300 rounded-md text-slate-500 focus-within:border-primary flex justify-center items-center gap-2">
-					<input type={type} className="w-full outline-none border-none" />
+					<input
+						type={type}
+						{...props}
+						className="w-full outline-none border-none"
+					/>
 				</div>
 			)}
 		</div>
