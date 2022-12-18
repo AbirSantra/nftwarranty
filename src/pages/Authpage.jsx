@@ -8,10 +8,26 @@ const Authpage = () => {
 	//? to store the auth types
 	const [islogin, setIslogin] = useState(true);
 
+	//? to store the input fields
+	const [email, setEmail] = useState("");
+	const [pass, setPass] = useState("");
+	const [confirm, setConfirm] = useState("");
+
 	//! to toggle the auth state
 	const toggleAuth = (e) => {
 		e.preventDefault();
 		setIslogin((prev) => !prev);
+	};
+
+	//! to handle the input changes
+	const handleEmail = (e) => {
+		setEmail(e.target.value);
+	};
+	const handlePass = (e) => {
+		setPass(e.target.value);
+	};
+	const handleConfirm = (e) => {
+		setEmail(e.target.value);
 	};
 
 	return (
@@ -39,8 +55,18 @@ const Authpage = () => {
 						{islogin ? (
 							// Login Form
 							<form className="flex flex-col items-center gap-4 w-full mt-8">
-								<InputField label="Email" type="email" />
-								<InputField label="Password" type="password" />
+								<InputField
+									label="Email"
+									type="email"
+									value={email}
+									onChange={handleEmail}
+								/>
+								<InputField
+									label="Password"
+									type="password"
+									value={pass}
+									onChange={handlePass}
+								/>
 								<button className="text-sm font-semibold text-primary self-end">
 									Forgot Password
 								</button>
