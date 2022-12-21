@@ -52,73 +52,53 @@ const Authpage = () => {
 								: "Enter your details below"}
 						</h1>
 						{/* Form body */}
-						{islogin ? (
-							// Login Form
-							<form className="flex flex-col items-center gap-4 w-full mt-8">
+						<form className="flex flex-col items-center gap-4 w-full mt-8">
+							<InputField
+								label="Email"
+								type="email"
+								value={email}
+								onChange={handleEmail}
+							/>
+							<InputField
+								label="Password"
+								type="password"
+								value={pass}
+								onChange={handlePass}
+							/>
+							{islogin ? null : (
 								<InputField
-									label="Email"
-									type="email"
-									value={email}
-									onChange={handleEmail}
-								/>
-								<InputField
-									label="Password"
+									label="Confirm Password"
 									type="password"
-									value={pass}
-									onChange={handlePass}
+									value={confirm}
+									onChange={handleConfirm}
 								/>
+							)}
+							{islogin ? (
 								<button className="text-sm font-semibold text-primary self-end">
 									Forgot Password
 								</button>
-								<button className=" w-full bg-primary px-4 py-2 rounded-lg text-base font-semibold text-white-one hover:bg-primary-dark ease-in-out duration-200">
-									<p>Sign In</p>
+							) : null}
+							<button className=" w-full bg-primary px-4 py-2 rounded-lg text-base font-semibold text-white-one hover:bg-primary-dark ease-in-out duration-200">
+								<p>{islogin ? "Sign in" : "Create account"}</p>
+							</button>
+							<button className="w-full outline-none px-4 py-2 border border-slate-300 rounded-md text-slate-500 hover:border-primary ease-in-out duration-200 flex justify-center items-center gap-4 text-sm font-semibold">
+								<img
+									src={googleLogo}
+									className="h-4 w-4 flex justify-center items-center"
+									alt="google sign in"
+								/>
+								<p>Continue with Google</p>
+							</button>
+							<p className="mt-4 text-sm text-slate-400">
+								{islogin ? "New here? " : "Already have an account? "}
+								<button
+									className="text-primary font-semibold"
+									onClick={toggleAuth}
+								>
+									{islogin ? "Create account" : "Sign in"}
 								</button>
-								<button className="w-full outline-none px-4 py-2 border border-slate-300 rounded-md text-slate-500 hover:border-primary ease-in-out duration-200 flex justify-center items-center gap-4 text-sm font-semibold">
-									<img
-										src={googleLogo}
-										className="h-4 w-4 flex justify-center items-center"
-										alt="google sign in"
-									/>
-									<p>Continue with Google</p>
-								</button>
-								<p className="mt-4 text-sm text-slate-400">
-									New here?{" "}
-									<button
-										className="text-primary font-semibold"
-										onClick={toggleAuth}
-									>
-										Create an account
-									</button>
-								</p>
-							</form>
-						) : (
-							// Register form
-							<form className="flex flex-col items-center gap-4 w-full mt-8">
-								<InputField label="Email" type="email" />
-								<InputField label="Password" type="password" />
-								<InputField label="Confirm Password" type="password" />
-								<button className=" w-full mt-2 bg-primary px-4 py-2 rounded-lg text-base font-semibold text-white-one hover:bg-primary-dark ease-in-out duration-200">
-									<p>Sign Up</p>
-								</button>
-								<button className="w-full outline-none px-4 py-2 border border-slate-300 rounded-md text-slate-500 hover:border-primary ease-in-out duration-200 flex justify-center items-center gap-4 text-sm font-semibold">
-									<img
-										src={googleLogo}
-										className="h-4 w-4 flex justify-center items-center"
-										alt="google sign in"
-									/>
-									<p>Continue with Google</p>
-								</button>
-								<p className="mt-4 text-sm text-slate-400">
-									Already have an account?{" "}
-									<button
-										className="text-primary font-semibold"
-										onClick={toggleAuth}
-									>
-										Sign in
-									</button>
-								</p>
-							</form>
-						)}
+							</p>
+						</form>
 					</div>
 					{/* Copyright */}
 					<p className="text-grey-three">
