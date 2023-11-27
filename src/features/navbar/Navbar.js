@@ -34,7 +34,7 @@ function NavBar({ children }) {
     <>
       {userInfo && (
         <div className="min-h-full">
-          <Disclosure as="nav" className="bg-gray-800">
+          <Disclosure as="nav" className="bg-orange-600">
             {({ open }) => (
               <>
                 <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
@@ -64,8 +64,8 @@ function NavBar({ children }) {
                                 to={item.link}
                                 className={classNames(
                                   item.current
-                                    ? "bg-gray-900 text-white"
-                                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                                    ? "bg-orange-600 text-white"
+                                    : "text-white hover:bg-orange-700 hover:text-white",
                                   "rounded-md px-3 py-2 text-sm font-medium"
                                 )}
                                 aria-current={item.current ? "page" : undefined}
@@ -82,7 +82,7 @@ function NavBar({ children }) {
                         <Link to="/cart">
                           <button
                             type="button"
-                            className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                            className="rounded-full bg-orange-600 p-1 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                           >
                             <span className="sr-only">View notifications</span>
                             <ShoppingCartIcon
@@ -104,7 +104,9 @@ function NavBar({ children }) {
                               <span className="sr-only">Open user menu</span>
                               <img
                                 className="h-8 w-8 rounded-full"
-                                src={userInfo.imageUrl}
+                                src={
+                                  userInfo.imageUrl || "/user-placeholder.jpg"
+                                }
                                 alt=""
                               />
                             </Menu.Button>
