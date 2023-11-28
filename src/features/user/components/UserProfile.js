@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectUserInfo, updateUserAsync } from '../userSlice';
-import { useForm } from 'react-hook-form';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { selectUserInfo, updateUserAsync } from "../userSlice";
+import { useForm } from "react-hook-form";
 
 export default function UserProfile() {
   const dispatch = useDispatch();
   const userInfo = useSelector(selectUserInfo);
   const [selectedEditIndex, setSelectedEditIndex] = useState(-1);
   const [showAddAddressForm, setShowAddAddressForm] = useState(false);
-
 
   const {
     register,
@@ -33,17 +32,20 @@ export default function UserProfile() {
   const handleEditForm = (index) => {
     setSelectedEditIndex(index);
     const address = userInfo.addresses[index];
-    setValue('name', address.name);
-    setValue('email', address.email);
-    setValue('city', address.city);
-    setValue('state', address.state);
-    setValue('pinCode', address.pinCode);
-    setValue('phone', address.phone);
-    setValue('street', address.street);
+    setValue("name", address.name);
+    setValue("email", address.email);
+    setValue("city", address.city);
+    setValue("state", address.state);
+    setValue("pinCode", address.pinCode);
+    setValue("phone", address.phone);
+    setValue("street", address.street);
   };
 
   const handleAdd = (address) => {
-    const newUser = { ...userInfo, addresses: [...userInfo.addresses, address] };
+    const newUser = {
+      ...userInfo,
+      addresses: [...userInfo.addresses, address],
+    };
     dispatch(updateUserAsync(newUser));
     setShowAddAddressForm(false);
   };
@@ -53,12 +55,12 @@ export default function UserProfile() {
       <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
           <h1 className="text-4xl my-5 font-bold tracking-tight text-gray-900">
-            Name: {userInfo.name ? userInfo.name : 'New User'}
+            Name: {userInfo.name ? userInfo.name : "New User"}
           </h1>
           <h3 className="text-xl my-5 font-bold tracking-tight text-red-900">
             email address : {userInfo.email}
           </h3>
-          {userInfo.role === 'admin' && (
+          {userInfo.role === "admin" && (
             <h3 className="text-xl my-5 font-bold tracking-tight text-red-900">
               role : {userInfo.role}
             </h3>
@@ -72,7 +74,7 @@ export default function UserProfile() {
               setSelectedEditIndex(-1);
             }}
             type="submit"
-            className="rounded-md my-5 bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="rounded-md my-5 bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
           >
             Add New Address
           </button>
@@ -106,11 +108,11 @@ export default function UserProfile() {
                       <div className="mt-2">
                         <input
                           type="text"
-                          {...register('name', {
-                            required: 'name is required',
+                          {...register("name", {
+                            required: "name is required",
                           })}
                           id="name"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                         />
                         {errors.name && (
                           <p className="text-red-500">{errors.name.message}</p>
@@ -128,11 +130,11 @@ export default function UserProfile() {
                       <div className="mt-2">
                         <input
                           id="email"
-                          {...register('email', {
-                            required: 'email is required',
+                          {...register("email", {
+                            required: "email is required",
                           })}
                           type="email"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                         />
                         {errors.email && (
                           <p className="text-red-500">{errors.email.message}</p>
@@ -150,11 +152,11 @@ export default function UserProfile() {
                       <div className="mt-2">
                         <input
                           id="phone"
-                          {...register('phone', {
-                            required: 'phone is required',
+                          {...register("phone", {
+                            required: "phone is required",
                           })}
                           type="tel"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                         />
                         {errors.phone && (
                           <p className="text-red-500">{errors.phone.message}</p>
@@ -172,11 +174,11 @@ export default function UserProfile() {
                       <div className="mt-2">
                         <input
                           type="text"
-                          {...register('street', {
-                            required: 'street is required',
+                          {...register("street", {
+                            required: "street is required",
                           })}
                           id="street"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                         />
                         {errors.street && (
                           <p className="text-red-500">
@@ -196,12 +198,12 @@ export default function UserProfile() {
                       <div className="mt-2">
                         <input
                           type="text"
-                          {...register('city', {
-                            required: 'city is required',
+                          {...register("city", {
+                            required: "city is required",
                           })}
                           id="city"
                           autoComplete="address-level2"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                         />
                         {errors.city && (
                           <p className="text-red-500">{errors.city.message}</p>
@@ -219,11 +221,11 @@ export default function UserProfile() {
                       <div className="mt-2">
                         <input
                           type="text"
-                          {...register('state', {
-                            required: 'state is required',
+                          {...register("state", {
+                            required: "state is required",
                           })}
                           id="state"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                         />
                         {errors.state && (
                           <p className="text-red-500">{errors.state.message}</p>
@@ -241,11 +243,11 @@ export default function UserProfile() {
                       <div className="mt-2">
                         <input
                           type="text"
-                          {...register('pinCode', {
-                            required: 'pinCode is required',
+                          {...register("pinCode", {
+                            required: "pinCode is required",
                           })}
                           id="pinCode"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                         />
                         {errors.pinCode && (
                           <p className="text-red-500">
@@ -260,7 +262,7 @@ export default function UserProfile() {
                 <div className="mt-6 flex items-center justify-end gap-x-6">
                   <button
                     type="submit"
-                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
                   >
                     Add Address
                   </button>
@@ -302,11 +304,11 @@ export default function UserProfile() {
                           <div className="mt-2">
                             <input
                               type="text"
-                              {...register('name', {
-                                required: 'name is required',
+                              {...register("name", {
+                                required: "name is required",
                               })}
                               id="name"
-                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                             />
                             {errors.name && (
                               <p className="text-red-500">
@@ -326,11 +328,11 @@ export default function UserProfile() {
                           <div className="mt-2">
                             <input
                               id="email"
-                              {...register('email', {
-                                required: 'email is required',
+                              {...register("email", {
+                                required: "email is required",
                               })}
                               type="email"
-                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                             />
                             {errors.email && (
                               <p className="text-red-500">
@@ -350,11 +352,11 @@ export default function UserProfile() {
                           <div className="mt-2">
                             <input
                               id="phone"
-                              {...register('phone', {
-                                required: 'phone is required',
+                              {...register("phone", {
+                                required: "phone is required",
                               })}
                               type="tel"
-                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                             />
                             {errors.phone && (
                               <p className="text-red-500">
@@ -374,11 +376,11 @@ export default function UserProfile() {
                           <div className="mt-2">
                             <input
                               type="text"
-                              {...register('street', {
-                                required: 'street is required',
+                              {...register("street", {
+                                required: "street is required",
                               })}
                               id="street"
-                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                             />
                             {errors.street && (
                               <p className="text-red-500">
@@ -398,12 +400,12 @@ export default function UserProfile() {
                           <div className="mt-2">
                             <input
                               type="text"
-                              {...register('city', {
-                                required: 'city is required',
+                              {...register("city", {
+                                required: "city is required",
                               })}
                               id="city"
                               autoComplete="address-level2"
-                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                             />
                             {errors.city && (
                               <p className="text-red-500">
@@ -423,11 +425,11 @@ export default function UserProfile() {
                           <div className="mt-2">
                             <input
                               type="text"
-                              {...register('state', {
-                                required: 'state is required',
+                              {...register("state", {
+                                required: "state is required",
                               })}
                               id="state"
-                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                             />
                             {errors.state && (
                               <p className="text-red-500">
@@ -447,11 +449,11 @@ export default function UserProfile() {
                           <div className="mt-2">
                             <input
                               type="text"
-                              {...register('pinCode', {
-                                required: 'pinCode is required',
+                              {...register("pinCode", {
+                                required: "pinCode is required",
                               })}
                               id="pinCode"
-                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                             />
                             {errors.pinCode && (
                               <p className="text-red-500">
@@ -467,13 +469,13 @@ export default function UserProfile() {
                       <button
                         onClick={(e) => setSelectedEditIndex(-1)}
                         type="submit"
-                        className="rounded-md px-3 py-2 text-sm font-semibold text-grey shadow-sm hover:bg-grey-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="rounded-md px-3 py-2 text-sm font-semibold text-grey shadow-sm hover:bg-grey-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
                       >
                         Cancel
                       </button>
                       <button
                         type="submit"
-                        className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
                       >
                         Edit Address
                       </button>
@@ -507,14 +509,14 @@ export default function UserProfile() {
                   <button
                     onClick={(e) => handleEditForm(index)}
                     type="button"
-                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                    className="font-medium text-orange-600 hover:text-orange-500"
                   >
                     Edit
                   </button>
                   <button
                     onClick={(e) => handleRemove(e, index)}
                     type="button"
-                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                    className="font-medium text-orange-600 hover:text-orange-500"
                   >
                     Remove
                   </button>
